@@ -65,12 +65,26 @@ copy-current-url/
 ├── content.js         # Keyboard listener & toast display
 ├── options.html       # Settings page UI
 ├── options.js         # Settings page logic
+├── build.sh           # Build script for packaging
 └── icons/
     ├── icon.svg       # Source icon
     ├── icon16.png     # Toolbar icon
     ├── icon48.png     # Extensions page icon
     └── icon128.png    # Web Store icon
 ```
+
+## Building
+
+Run the build script to create a distributable zip:
+
+```bash
+./build.sh
+```
+
+This will:
+- Validate all required files
+- Check manifest.json syntax
+- Create `dist/copy-current-url-v{version}.zip`
 
 ## Permissions
 
