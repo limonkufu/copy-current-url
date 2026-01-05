@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Copy Current URL - Settings</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 20px;
+      min-width: 350px;
+      background: #f5f5f5;
+      margin: 0;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      color: #333;
+    }
+    .setting-group {
+      background: white;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .shortcut-input {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    #shortcut-display {
+      flex: 1;
+      padding: 10px 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      background: #fafafa;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    #shortcut-display:focus {
+      outline: none;
+      border-color: #4285f4;
+      background: white;
+    }
+    #shortcut-display.recording {
+      border-color: #ea4335;
+      background: #fff8f8;
+    }
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      background: white;
+      cursor: pointer;
+    }
+    select:focus {
+      outline: none;
+      border-color: #4285f4;
+    }
+    .hint {
+      font-size: 11px;
+      color: #888;
+      margin-top: 8px;
+    }
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #save-btn {
+      background: #4285f4;
+      color: white;
+    }
+    #save-btn:hover {
+      background: #3367d6;
+    }
+    #reset-btn {
+      background: #f1f1f1;
+      color: #333;
+    }
+    #reset-btn:hover {
+      background: #e1e1e1;
+    }
+    .button-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    #status {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      display: none;
+    }
+    #status.success {
+      display: block;
+      background: #e6f4ea;
+      color: #1e7e34;
+    }
+    #status.error {
+      display: block;
+      background: #fce8e6;
+      color: #c5221f;
+    }
+    .chrome-shortcuts-link {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      color: #666;
+    }
+    .chrome-shortcuts-link a {
+      color: #4285f4;
+      text-decoration: none;
+    }
+    .chrome-shortcuts-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Copy Current URL Settings</h1>
+
+  <div class="setting-group">
+    <label for="shortcut-display">Keyboard Shortcut</label>
+    <div class="shortcut-input">
+      <input type="text" id="shortcut-display" readonly placeholder="Click to record shortcut">
+    </div>
+    <p class="hint">Click the field and press your desired key combination</p>
+  </div>
+
+  <div class="setting-group">
+    <label for="toast-position">Toast Notification Position</label>
+    <select id="toast-position">
+      <option value="top-right">Top Right</option>
+      <option value="top-left">Top Left</option>
+      <option value="bottom-right">Bottom Right</option>
+      <option value="bottom-left">Bottom Left</option>
+    </select>
+  </div>
+
+  <div class="setting-group">
+    <div class="button-group">
+      <button id="save-btn">Save</button>
+      <button id="reset-btn">Reset to Default</button>
+    </div>
+
+    <div id="status"></div>
+
+    <div class="chrome-shortcuts-link">
+      You can also configure shortcuts in <a href="#" id="chrome-shortcuts">Chrome's extension shortcuts</a>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
